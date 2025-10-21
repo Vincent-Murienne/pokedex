@@ -45,6 +45,11 @@ public class PokemonService {
                     p.setAttack(p.getAttack() - 5);
                     log.warn(p.getNom() + " : attaque réduite de " + oldAttack + " → " + p.getAttack());
                 }
+                if (p.getTypes().stream().anyMatch(t -> "Eau".equalsIgnoreCase(t.getNom()))) {
+                    int oldAttack = p.getAttack();
+                    p.setAttack(p.getAttack() + 5);
+                    log.warn(p.getNom() + " : attaque augmenté de " + oldAttack + " → " + p.getAttack());
+                }
             });
         } else {
             log.warn("Pas de pluie détectée, aucun malus appliqué.");
