@@ -24,15 +24,21 @@ Une application Spring Boot qui liste les Pokémon et ajuste leurs statistiques 
 
 ## Configuration
 
-1. Copier la clé API dans `src/main/resources/application.properties` :  
+1. Renommer le fichier `.env.example` en `.env` :  
+
+2. Copier la clé API dans le fichier `.env` :  
 ```
-weather.api.key=VOTRE_CLE_API
+WEATHER_API_KEY=
 ```
-2. Configurer la connexion PostgreSQL :
+3. Configurer la connexion PostgreSQL et Spring :
 ```
-spring.datasource.url=jdbc:postgresql://<HOST>/pokedex
-spring.datasource.username=<USER>
-spring.datasource.password=<PASSWORD>
+POSTGRES_DB=
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+
+SPRING_DATASOURCE_URL=
+SPRING_DATASOURCE_USERNAME=
+SPRING_DATASOURCE_PASSWORD=
 ```
 
 ## Lancement de l'application
