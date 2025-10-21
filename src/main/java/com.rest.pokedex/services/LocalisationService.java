@@ -29,6 +29,17 @@ public class LocalisationService {
         return localisationRepository.save(localisation);
     }
 
+    public Localisation updateLocalisation(UUID id, Localisation updatedLocalisation) {
+        Localisation existingLocalisation = localisationRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Localisation non trouvée avec l'id: " + id));
+
+        if (updatedLocalisation.getNom() != null) {
+            existingLocalisation.setNom(updatedLocalisation.getNom());
+        }
+
+        return localisationRepository.save(existingLocalisation);
+    }
+
     public void deleteLocalisationById(UUID id) {
         localisationRepository.deleteById(id);
     }

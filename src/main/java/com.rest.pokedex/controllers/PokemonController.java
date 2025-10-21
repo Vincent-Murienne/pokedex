@@ -40,6 +40,11 @@ public class PokemonController {
         return pokemonService.savePokemon(pokemon);
     }
 
+    @PatchMapping("/{id}")
+    public Pokemon update(@PathVariable UUID id, @RequestBody Pokemon updatedPokemon) {
+        return pokemonService.updatePokemon(id, updatedPokemon);
+    }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable UUID id) {
         pokemonService.deletePokemonById(id);

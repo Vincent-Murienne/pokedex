@@ -35,6 +35,11 @@ public class TypeController {
         return typeService.saveType(type);
     }
 
+    @PatchMapping("/{id}")
+    public Type update(@PathVariable UUID id, @RequestBody Type updatedType) {
+        return typeService.updateType(id, updatedType);
+    }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable UUID id) {
         typeService.deleteTypeById(id);

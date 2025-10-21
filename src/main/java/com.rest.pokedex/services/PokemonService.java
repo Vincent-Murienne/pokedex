@@ -57,6 +57,35 @@ public class PokemonService {
         return pokemonRepository.save(pokemon);
     }
 
+    public Pokemon updatePokemon(UUID id, Pokemon updatedPokemon) {
+        Pokemon existingPokemon = pokemonRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Pokémon non trouvé avec l'id: " + id));
+
+        if (updatedPokemon.getNom() != null) {
+            existingPokemon.setNom(updatedPokemon.getNom());
+        }
+        if (updatedPokemon.getAttack() != 0) {
+            existingPokemon.setAttack(updatedPokemon.getAttack());
+        }
+        if (updatedPokemon.getDefense() != 0) {
+            existingPokemon.setDefense(updatedPokemon.getDefense());
+        }
+        if (updatedPokemon.getHp() != 0) {
+            existingPokemon.setHp(updatedPokemon.getHp());
+        }
+        if (updatedPokemon.getSpeed() != 0) {
+            existingPokemon.setSpeed(updatedPokemon.getSpeed());
+        }
+        if (updatedPokemon.getTypes() != null && !updatedPokemon.getTypes().isEmpty()) {
+            existingPokemon.setTypes(updatedPokemon.getTypes());
+        }
+        if (updatedPokemon.getLocalisation() != null) {
+            existingPokemon.setLocalisation(updatedPokemon.getLocalisation());
+        }
+
+        return pokemonRepository.save(existingPokemon);
+    }
+
     public void deletePokemonById(UUID id) {
         pokemonRepository.deleteById(id);
     }

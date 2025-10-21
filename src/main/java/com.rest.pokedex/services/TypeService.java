@@ -29,6 +29,15 @@ public class TypeService {
         return typeRepository.save(type);
     }
 
+    public Type updateType(UUID id, Type updatedType) {
+        Type existingType = typeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Type non trouvé avec l'id: " + id));
+
+        existingType.setNom(updatedType.getNom());
+
+        return typeRepository.save(existingType);
+    }
+
     public void deleteTypeById(UUID id) {
         typeRepository.deleteById(id);
     }

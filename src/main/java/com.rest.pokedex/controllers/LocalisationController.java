@@ -35,6 +35,11 @@ public class LocalisationController {
         return localisationService.saveLocalisation(localisation);
     }
 
+    @PatchMapping("/{id}")
+    public Localisation update(@PathVariable UUID id, @RequestBody Localisation updatedLocalisation) {
+        return localisationService.updateLocalisation(id, updatedLocalisation);
+    }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable UUID id) {
         localisationService.deleteLocalisationById(id);
