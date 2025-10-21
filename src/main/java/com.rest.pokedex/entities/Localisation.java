@@ -1,9 +1,18 @@
 package com.rest.pokedex.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.UUID;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "localisation")
 public class Localisation {
 
@@ -14,17 +23,4 @@ public class Localisation {
 
     @Column(name = "nom", nullable = false)
     private String nom;
-
-    public Localisation() {}
-
-    public Localisation(UUID id, String nom) {
-        this.id = id;
-        this.nom = nom;
-    }
-
-    public UUID getId() { return id; }
-    public String getNom() { return nom; }
-
-    public void setId(UUID id) { this.id = id; }
-    public void setNom(String nom) { this.nom = nom; }
 }
