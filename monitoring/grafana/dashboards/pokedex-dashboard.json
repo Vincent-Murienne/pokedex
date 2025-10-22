@@ -1,0 +1,44 @@
+{
+  "annotations": { "list": [] },
+  "panels": [
+    {
+      "type": "graph",
+      "title": "JVM: Heap used",
+      "id": 1,
+      "targets": [
+        {
+          "expr": "jvm_memory_used_bytes{area=\"heap\"}",
+          "legendFormat": "{{instance}}"
+        }
+      ],
+      "gridPos": {"x":0,"y":0,"w":12,"h":8}
+    },
+    {
+      "type": "graph",
+      "title": "HTTP Server Requests (count)",
+      "id": 2,
+      "targets": [
+        {
+          "expr": "http_server_requests_seconds_count",
+          "legendFormat": "{{uri}} {{status}}"
+        }
+      ],
+      "gridPos": {"x":12,"y":0,"w":12,"h":8}
+    },
+    {
+      "type": "graph",
+      "title": "Process CPU",
+      "id": 3,
+      "targets": [
+        {
+          "expr": "process_cpu_usage",
+          "legendFormat": "{{instance}}"
+        }
+      ],
+      "gridPos": {"x":0,"y":8,"w":24,"h":6}
+    }
+  ],
+  "title": "Pokedex App Overview",
+  "schemaVersion": 16,
+  "version": 1
+}
