@@ -56,7 +56,7 @@ GRAFANA_ADMIN_PASSWORD=
 
 Build les images + création / run les containeurs :
 ```
- docker compose -f docker-compose.dev.yml up --build -d
+docker compose -f docker-compose.dev.yml up --build -d
 ```
 
 | Service            | URL                                                              | Description                        |
